@@ -1,9 +1,9 @@
 import React, { Component } from "react";
+import AboutPresentation from "./AboutPresentation";
 import { getRandomInt } from "../../../library/helper";
-import DonatePresentation from "./DonatePresentation";
 
 
-class DonateContainer extends Component {
+class AboutContainer extends Component {
 
     constructor(props) {
         super(props);
@@ -20,9 +20,9 @@ class DonateContainer extends Component {
 
     render() {
         return (
-            <DonatePresentation { ...this.state }/>
+            <AboutPresentation { ...this.state }/>
         );
     };
 }
 
-export default DonateContainer;
+export default AboutContainer;

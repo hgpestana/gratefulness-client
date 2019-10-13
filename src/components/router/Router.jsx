@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 import { Route, Switch } from "react-router";
 import { BrowserRouter } from 'react-router-dom';
 import { BaseTemplateWLinks } from "../templates/BaseTemplateWLinks";
-import HomeSection from "../pages/home";
-import SubmitQuoteSection from "../pages/submit-quote-section";
-import DonateSection from "../pages/donate";
+import Home from "../pages/home";
+import About from "../pages/about";
+import SubmitQuote from "../pages/submit-quote";
+import Donate from "../pages/donate";
 
 
 class Router extends Component {
@@ -16,6 +17,7 @@ class Router extends Component {
     static defaultProps = {
         links: [
             { url: '/', name: 'Home' },
+            { url: '/about', name: 'About' },
             { url: '/submit-quote', name: 'Submit a quote' },
             { url: '/donate', name: 'Donate' },
         ]
@@ -26,9 +28,10 @@ class Router extends Component {
             <BrowserRouter>
                 <BaseTemplateWLinks links={ this.props.links }>
                     <Switch>
-                        <Route exact path={ '/' } component={ HomeSection }/>
-                        <Route exact path={ '/submit-quote' } component={ SubmitQuoteSection }/>
-                        <Route exact path={ '/donate' } component={ DonateSection }/>
+                        <Route exact path={ '/' } component={ Home }/>
+                        <Route exact path={ '/about' } component={ About }/>
+                        <Route exact path={ '/submit-quote' } component={ SubmitQuote }/>
+                        <Route exact path={ '/donate' } component={ Donate }/>
                     </Switch>
                 </BaseTemplateWLinks>
             </BrowserRouter>

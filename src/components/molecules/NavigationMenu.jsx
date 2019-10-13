@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link as RouterLink } from 'react-router-dom';
-import Link from '@material-ui/core/Link';
-import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
+import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
 
 class NavigationMenu extends Component {
     static propTypes = {

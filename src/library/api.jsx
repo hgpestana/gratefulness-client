@@ -1,5 +1,5 @@
 function _buildURI(endpoint) {
-    const url = 'http://api.gratefulness.guru';
+    const url = 'https://api.gratefulness.guru';
     return `${ url }/${ endpoint }`;
 }
 
@@ -18,10 +18,10 @@ function _buildBody(body = null) {
     return null;
 }
 
-function _buildContent(headers, body) {
+function _buildContent(method, headers, body) {
     return {
         mode: 'cors',
-        method: 'GET',
+        method: method,
         headers: headers,
         body: body
     }
@@ -29,10 +29,27 @@ function _buildContent(headers, body) {
 
 export async function getQuote() {
     return fetch(
-        _buildURI('quotes'),
+        _buildURI('quotes/random/en'),
         _buildContent(
+            'GET',
             _buildHeaders(),
             _buildBody()
+        )
+    );
+}
+
+export async function submitQuote(quote, author) {
+    let body = {
+        "sentence": quote,
+        "author": author,
+        "language": "en"
+    };
+    return fetch(
+        _buildURI('quotes'),
+        _buildContent(
+            'POST',
+            _buildHeaders(),
+            _buildBody(body)
         )
     );
 }

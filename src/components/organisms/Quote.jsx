@@ -1,8 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from 'prop-types'
 import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 
 class Quote extends Component {
     static propTypes = {
@@ -12,16 +10,14 @@ class Quote extends Component {
 
     render() {
         return (
-            <Grid item xs={ 12 }>
-                <Paper>
-                    <Typography>
-                        "{ this.props.quote }"
-                    </Typography>
-                    <Typography>
-                        - { this.props.author }
-                    </Typography>
-                </Paper>
-            </Grid>
+            <Fragment>
+                <Typography id={'quote'} paragraph={true} align={"justify"}>
+                    "{ this.props.quote }"
+                </Typography>
+                <Typography id={'author'} align={"right"} paragraph={true}>
+                    - { this.props.author }
+                </Typography>
+            </Fragment>
         );
     };
 }
